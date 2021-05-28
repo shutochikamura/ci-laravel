@@ -14,13 +14,13 @@ jobs:
           path: ~/backend
       - restore_cache:
           keys:
-            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-{{ checksum "backend/composer.lock" }}
             - composer-v1-
       - run:
           name: composer依存関係をインストール
           command: composer install -n --prefer-dist
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "backend/composer.lock" }}
           paths:
             - vendor
       - restore_cache:
@@ -46,6 +46,7 @@ jobs:
           path: test_results
       - store_artifacts:
           path: coverage
+
 workflows:
   main:
     jobs:
