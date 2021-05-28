@@ -1,10 +1,10 @@
 version: 2.1
 jobs:
   build_and_test:
-    working_directory: ~/backend/src
+    working_directory: ~/backend/
     docker:
       - image: cimg/php:7.3.20-node
-      - image: circleci/mysql:5.7
+      - image: circleci/mysql:8.0
         environment:
           MYSQL_DATABASE: laravel
           MYSQL_USER: laravel
