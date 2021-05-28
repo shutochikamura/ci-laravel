@@ -3,7 +3,7 @@ jobs:
   build_and_test:
     working_directory: ~/backend
     docker:
-      - image: cimg/php:7.3.20-node
+      - image: cimg/php:latest
       - image: circleci/mysql:8.0
         environment:
           MYSQL_DATABASE: db
@@ -39,7 +39,7 @@ jobs:
           command: echo $ENV_FILE | base64 --decode > .env
       - run:
           name: マイグレーションを実行
-          command: ./vendor/bin/phpunit --testdox-xml test_results/phpunit/result.xml --coverage-html=coverage
+          command: vendor/bin/phpunit --testdox-xml test_results/phpunit/result.xml --coverage-html=coverage
       - store_test_results:
           path: test_results
       - store_artifacts:
