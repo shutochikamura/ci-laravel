@@ -16,7 +16,7 @@ jobs:
           keys:
             - composer-v1-{{ checksum "backend/composer.lock" }}
             - composer-v1-
-      - run: composer install -n --prefer-dist
+      # - run: composer install -n --prefer-dist
 
       - save_cache:
           key: composer-v1-{{ checksum "backend/composer.lock" }}
