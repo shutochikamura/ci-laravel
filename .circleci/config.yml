@@ -6,7 +6,7 @@ jobs:
       - image: cimg/php:7.3.20-node
       - image: circleci/mysql:8.0
         environment:
-          MYSQL_DATABASE: laravel
+          MYSQL_DATABASE: db
           MYSQL_USER: laravel
           MYSQL_PASSWORD: secret
 
